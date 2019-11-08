@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "outDir": "build",
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "target": "es6",
+        "noImplicitAny": false,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "paths": {
+            "*": [
+                "node_modules/*"
+            ]
+        },
+        "lib": ["es2015", "es2016", "es2017", "es2018.promise"],
+    },
+    "include": [
+        "./**/*"
+    ]
+}
