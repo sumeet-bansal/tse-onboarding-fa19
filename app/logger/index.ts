@@ -1,7 +1,7 @@
 const winston = require('winston');
 const config = require('../config');
 
-const logger = winston.createLogger({
+export const logger = winston.createLogger({
   level: config.logging.level,
   format: winston.format.combine(
     winston.format.timestamp({
@@ -20,6 +20,3 @@ const logger = winston.createLogger({
     }),
   ],
 });
-
-logger.level = config.logging.level;
-module.exports = logger;
