@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
-const ChannelSchema = new Schema({
+export const ChannelSchema = new Schema({
   name: String,
   messages: [{
     type: Schema.Types.ObjectId,
@@ -10,7 +10,7 @@ const ChannelSchema = new Schema({
   message_count: Number 
 });
 
-const MessageSchema = new Schema({
+export const MessageSchema = new Schema({
   sender: String,
   content: String,
   channel: {
@@ -20,10 +20,5 @@ const MessageSchema = new Schema({
   created_at: Date 
 });
 
-const Channel = mongoose.model('Channel', ChannelSchema);
-const Message = mongoose.model('Message', MessageSchema);
-
-module.exports = {
-  Channel,
-  Message
-}
+export const Channel = mongoose.model('Channel', ChannelSchema);
+export const Message = mongoose.model('Message', MessageSchema);
