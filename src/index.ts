@@ -1,9 +1,9 @@
 import 'reflect-metadata';
 import { createExpressServer } from 'routing-controllers';
 
+import mongoose from 'mongoose';
 import { UserController } from './controllers';
 import { logger as log, middleware as loggingMiddleware } from './logger';
-import mongoose from 'mongoose';
 
 // windows will need `docker-machine ip` not localhost
 mongoose.connect('mongodb://localhost:27017/chatrooms', { useNewUrlParser: true });
