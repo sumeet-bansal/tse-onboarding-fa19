@@ -48,7 +48,7 @@
 
   Returns `{ error: true, message: '...' }` on error.
 
-#### Useful Commands
+## Useful Commands
 + `docker-compose up -d` to configure and run any required services
 + `npm install` to install the necessary dependencies
 + `npm run dev` to run the Node app with [Nodemon](https://nodemon.io/)
