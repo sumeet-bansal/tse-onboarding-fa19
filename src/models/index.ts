@@ -2,24 +2,22 @@ import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
 
-export const ChannelSchema = new Schema({
+export const EmployerSchema = new Schema({
   name: String,
-  messages: [{
+  employees: [{
     type: Schema.Types.ObjectId,
-    ref: 'Message',
+    ref: 'Employee',
   }],
-  message_count: Number,
+  employee_count: Number,
 });
 
-export const MessageSchema = new Schema({
-  sender: String,
-  content: String,
-  channel: {
+export const EmployeeSchema = new Schema({
+  name: String,
+  employer: {
     type: Schema.Types.ObjectId,
-    ref: 'Channel',
+    ref: 'Employer',
   },
-  created_at: Date,
 });
 
-export const Channel = mongoose.model('Channel', ChannelSchema);
-export const Message = mongoose.model('Message', MessageSchema);
+export const Employer = mongoose.model('Employer', EmployerSchema);
+export const Employee = mongoose.model('Employee', EmployeeSchema);
