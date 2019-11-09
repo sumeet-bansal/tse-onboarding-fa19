@@ -1,5 +1,9 @@
-const winston = require('winston');
-const config = require('../config');
+import morgan from 'morgan';
+import winston from 'winston';
+
+import config from '../config';
+
+export const loggingMiddleware = morgan(':date[web] [IP :req[X-Forwarded-For]] :method :url :status :response-time[3]ms');
 
 export const logger = winston.createLogger({
   level: config.logging.level,

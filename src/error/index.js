@@ -1,4 +1,4 @@
-const logger = require('../logger');
+import { logger as log } from '../logger';
 
 /**
  * This file defines error classes based on their semantic meaning. It abstracts away
@@ -87,9 +87,9 @@ const errorHandler = (err, req, res, next) => {
   if (!err.status) err = new InternalServerError(err.message);
 
   if (err.status < 500) {
-    logger.warn('%s [request %s]: %s [%d]: %s', new Date(), req.id, err.name, err.status, err.message);
+    log.warn('%s [request %s]: %s [%d]: %s', new Date(), req.id, err.name, err.status, err.message);
   } else {
-    logger.error('%s [request %s]: \n%s', new Date(), req.id, err.stack);
+    log.error('%s [request %s]: \n%s', new Date(), req.id, err.stack);
   }
 
   res.status(err.status).json({
@@ -106,7 +106,7 @@ const errorHandler = (err, req, res, next) => {
  */
 const notFoundHandler = (req, res, next) => {
   const err = new NotFound(`The resource ${req.url} was not found`);
-  logger.warn('%s [request %s]: %s [%d]: %s', new Date(), req.id, err.name, err.status, err.message);
+  log.warn('%s [request %s]: %s [%d]: %s', new Date(), req.id, err.name, err.status, err.message);
   res.status(err.status).json({
     error: {
       status: err.status,
